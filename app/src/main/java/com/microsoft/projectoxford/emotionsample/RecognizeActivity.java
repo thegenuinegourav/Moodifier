@@ -49,6 +49,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.emotion.EmotionServiceClient;
@@ -74,7 +75,7 @@ public class RecognizeActivity extends ActionBarActivity {
     private static final int REQUEST_SELECT_IMAGE = 0;
 
     // The button to select an image
-    private Button mButtonSelectImage;
+    private Button mButtonSelectImage,mButtonContinue;
 
     // The URI of the image selected to detect.
     private Uri mImageUri;
@@ -83,7 +84,7 @@ public class RecognizeActivity extends ActionBarActivity {
     private Bitmap mBitmap;
 
     // The edit to show status and result.
-    private EditText mEditText;
+    private TextView mEditText;
 
     private EmotionServiceClient client;
 
@@ -97,34 +98,15 @@ public class RecognizeActivity extends ActionBarActivity {
         }
 
         mButtonSelectImage = (Button) findViewById(R.id.buttonSelectImage);
-        mEditText = (EditText) findViewById(R.id.editTextResult);
+        mButtonContinue = (Button) findViewById(R.id.buttonContinue);
+        mEditText = (TextView) findViewById(R.id.editTextResult);
+
+        mButtonContinue.setEnabled(false);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_recognize, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public void doRecognize() {
         mButtonSelectImage.setEnabled(false);
-
         // Do emotion detection using auto-detected faces.
         try {
             new doRequest(false).execute();
@@ -348,10 +330,10 @@ public class RecognizeActivity extends ActionBarActivity {
                     ImageView imageView = (ImageView) findViewById(R.id.selectedImage);
                     imageView.setImageDrawable(new BitmapDrawable(getResources(), mBitmap));
                 }
-                mEditText.setSelection(0);
             }
 
             mButtonSelectImage.setEnabled(true);
+            mButtonContinue.setEnabled(true);
         }
     }
 }
