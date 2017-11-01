@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="emotion-1.0.355">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/emotion/1.0.355/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/emotion/1.0.355/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
