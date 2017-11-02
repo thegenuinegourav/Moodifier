@@ -49,6 +49,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -88,6 +89,8 @@ public class RecognizeActivity extends ActionBarActivity {
 
     private EmotionServiceClient client;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +103,7 @@ public class RecognizeActivity extends ActionBarActivity {
         mButtonSelectImage = (Button) findViewById(R.id.buttonSelectImage);
         mButtonContinue = (Button) findViewById(R.id.buttonContinue);
         mEditText = (TextView) findViewById(R.id.editTextResult);
-
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar_detect);
         mButtonContinue.setEnabled(false);
     }
 
@@ -145,7 +148,7 @@ public class RecognizeActivity extends ActionBarActivity {
                 if (resultCode == RESULT_OK) {
                     // If image is selected successfully, set the image URI and bitmap.
                     mImageUri = data.getData();
-
+                    progressBar.setVisibility(View.VISIBLE);
                     mBitmap = ImageHelper.loadSizeLimitedBitmapFromUri(
                             mImageUri, getContentResolver());
                     if (mBitmap != null) {
@@ -331,7 +334,7 @@ public class RecognizeActivity extends ActionBarActivity {
                     imageView.setImageDrawable(new BitmapDrawable(getResources(), mBitmap));
                 }
             }
-
+            progressBar.setVisibility(View.INVISIBLE);
             mButtonSelectImage.setEnabled(true);
             mButtonContinue.setEnabled(true);
         }

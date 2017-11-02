@@ -57,7 +57,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/happy" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/sad" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -111,7 +111,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/angry" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -135,7 +135,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/contempt" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -165,7 +165,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/disgust" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/fear" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -219,7 +219,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/ne" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -243,7 +243,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="15dp"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@drawable/surprise" />
 
                     <TextView
                         android:layout_width="wrap_content"
