@@ -133,7 +133,7 @@ public class RecognizeActivity extends ActionBarActivity {
     // Called when the "Select Image" button is clicked.
     public void selectImage(View view) {
         mEditText.setText("");
-
+        mButtonContinue.setEnabled(false);
         Intent intent;
         intent = new Intent(RecognizeActivity.this, com.microsoft.projectoxford.emotionsample.helper.SelectImageActivity.class);
         startActivityForResult(intent, REQUEST_SELECT_IMAGE);
@@ -149,6 +149,7 @@ public class RecognizeActivity extends ActionBarActivity {
                     // If image is selected successfully, set the image URI and bitmap.
                     mImageUri = data.getData();
                     progressBar.setVisibility(View.VISIBLE);
+                    mButtonContinue.setEnabled(false);
                     mBitmap = ImageHelper.loadSizeLimitedBitmapFromUri(
                             mImageUri, getContentResolver());
                     if (mBitmap != null) {
@@ -306,13 +307,13 @@ public class RecognizeActivity extends ActionBarActivity {
                     double max=-1;
                     for (RecognizeResult r : result) {
                         if(max<r.scores.anger){ max=r.scores.anger; mEditText.setText("Angry"); }
-                        if(max<r.scores.contempt){ max=r.scores.contempt; mEditText.setText("contempt"); }
-                        if(max<r.scores.disgust){ max=r.scores.disgust; mEditText.setText("disgust"); }
-                        if(max<r.scores.fear){ max=r.scores.fear; mEditText.setText("fear"); }
-                        if(max<r.scores.happiness){ max=r.scores.happiness; mEditText.setText("happiness"); }
-                        if(max<r.scores.neutral){ max=r.scores.neutral; mEditText.setText("neutral"); }
-                        if(max<r.scores.sadness){ max=r.scores.sadness; mEditText.setText("sadness"); }
-                        if(max<r.scores.surprise){ max=r.scores.surprise; mEditText.setText("surprise"); }
+                        if(max<r.scores.contempt){ max=r.scores.contempt; mEditText.setText("Contempt"); }
+                        if(max<r.scores.disgust){ max=r.scores.disgust; mEditText.setText("Disgust"); }
+                        if(max<r.scores.fear){ max=r.scores.fear; mEditText.setText("Fear"); }
+                        if(max<r.scores.happiness){ max=r.scores.happiness; mEditText.setText("Happy"); }
+                        if(max<r.scores.neutral){ max=r.scores.neutral; mEditText.setText("Neutral"); }
+                        if(max<r.scores.sadness){ max=r.scores.sadness; mEditText.setText("Sad"); }
+                        if(max<r.scores.surprise){ max=r.scores.surprise; mEditText.setText("Surprise"); }
 //                        mEditText.append(String.format("\nFace #%1$d \n", count));
 //                        mEditText.append(String.format("\t anger: %1$.5f\n", r.scores.anger));
 //                        mEditText.append(String.format("\t contempt: %1$.5f\n", r.scores.contempt));
@@ -337,6 +338,14 @@ public class RecognizeActivity extends ActionBarActivity {
             progressBar.setVisibility(View.INVISIBLE);
             mButtonSelectImage.setEnabled(true);
             mButtonContinue.setEnabled(true);
+            mButtonContinue.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(RecognizeActivity.this, ChangeMoodActivity.class);
+                    intent.putExtra("mood",mEditText.getText().toString().toLowerCase());
+                    startActivity(intent);
+                }
+            });
         }
     }
 }

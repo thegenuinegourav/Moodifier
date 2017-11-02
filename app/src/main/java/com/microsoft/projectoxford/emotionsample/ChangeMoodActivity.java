@@ -29,7 +29,18 @@ public class ChangeMoodActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         albumList = new ArrayList<>();
-        Happy();
+
+        String mood = getIntent().getStringExtra("mood");
+        switch (mood) {
+            case "happy": Happy(); break;
+            case "sad": Sad(); break;
+            case "angry": Angry(); break;
+            case "contempt": Contempt(); break;
+            case "disgust": Disgust(); break;
+            case "fear": Fear(); break;
+            case "neutral": Neutral(); break;
+            case "surprise": Surprise(); break;
+        }
         adapter = new NewsFeedAdapter(this, albumList);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -47,35 +58,32 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
 
@@ -89,38 +97,34 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
-
     }
 
 
@@ -131,38 +135,34 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
-
     }
 
 
@@ -173,38 +173,34 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
-
     }
 
 
@@ -215,38 +211,34 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
-
     }
 
 
@@ -257,38 +249,34 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
-
     }
 
 
@@ -299,41 +287,35 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
-
     }
-
-
     private void Happy() {
         String[] images = new String[]{
                 "http://www.planwallpaper.com/static/images/desktop-year-of-the-tiger-images-wallpaper.jpg",
@@ -341,35 +323,32 @@ public class ChangeMoodActivity extends AppCompatActivity {
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGru7M9U6PUAxD2FogVGRh5g6jR76dSi70yaTEJ7Q0NTYFR3RqNg"
         };
 
-        String[] videos = new String[]{
-                "http://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4",
-                "https://www.youtube.com/watch?v=YaVWCbv4lvM"
-        };
-
         String[] quotes = new String[]{
                 "Be Happy Asshole"
         };
 
-        NewsFeed a = new NewsFeed(quotes[0], "", "");
+        //To add text
+        NewsFeed a = new NewsFeed(quotes[0], "", null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[0], "");
+        //To add images
+        a = new NewsFeed("", images[0], null);
         albumList.add(a);
 
-        a = new NewsFeed("", images[1], "");
+        //To add videos
+        Video v = new Video("https://www.youtube.com/watch?v=PF48IFkHXgI",
+                "http://www.quertime.com/wp-content/uploads/2012/02/top_12_most_funny_and_hilarious_youtube_videos.jpg");
+        a = new NewsFeed("","",v);
         albumList.add(a);
 
-        a = new NewsFeed("", images[2], "");
+        //--------
+
+        a = new NewsFeed("", images[1], null);
         albumList.add(a);
 
-        a = new NewsFeed("", "", videos[0]);
+        a = new NewsFeed("", images[2], null);
         albumList.add(a);
 
-        a = new NewsFeed("Hello","","");
-        albumList.add(a);
-
-        a = new NewsFeed("","",videos[1]);
-        albumList.add(a);
 
         Collections.shuffle(albumList);
 

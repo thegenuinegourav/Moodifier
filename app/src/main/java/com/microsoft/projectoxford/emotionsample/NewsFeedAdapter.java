@@ -1,6 +1,7 @@
 package com.microsoft.projectoxford.emotionsample;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -32,18 +33,31 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
 
     private Context mContext;
     private List<NewsFeed> newsFeedListList;
+    public View v;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView status;
         public ImageView imageView;
-        public VideoView videoView;
+        public ImageView videoView,playButton;
         public ProgressBar progressBar;
+        public NewsFeed currentItem;
         public MyViewHolder(View view) {
             super(view);
             status = (TextView) view.findViewById(R.id.status);
             imageView = (ImageView) view.findViewById(R.id.image_url);
-            videoView = (VideoView) view.findViewById(R.id.video_url);
+            videoView = (ImageView) view.findViewById(R.id.video_url);
             progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+            playButton = (ImageView) view.findViewById(R.id.play_button);
+            v = view;
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    if(currentItem.getVideo_url()!=null) {
+                        Intent intent = new Intent(mContext, WebViewActivity.class);
+                        intent.putExtra("url", currentItem.getVideo_url().getVideo_url());
+                        mContext.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 
@@ -63,9 +77,12 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        NewsFeed album = newsFeedListList.get(position);
+        final NewsFeed album = newsFeedListList.get(position);
 
+        holder.currentItem = newsFeedListList.get(position);
         holder.progressBar.setVisibility(View.INVISIBLE);
+        holder.playButton.setVisibility(View.GONE);
+        holder.videoView.setClickable(false);
         if(album.getStatus().equals("")) holder.status.setVisibility(View.INVISIBLE);
         else {
             holder.status.setVisibility(View.VISIBLE);
@@ -91,26 +108,26 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
                     }).into(holder.imageView);
         }
 
-        if(album.getVideo_url().equals("")) holder.videoView.setVisibility(View.INVISIBLE);
+        if(album.getVideo_url()==null) holder.videoView.setVisibility(View.INVISIBLE);
         else {
             holder.progressBar.setVisibility(View.VISIBLE);
-            try {
-                holder.videoView.setVideoPath(album.getVideo_url());
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
+            Glide.with(mContext).load(album.getVideo_url().getThumbnail_url())
+                    .listener(new RequestListener<String, GlideDrawable>() {
+                        @Override
+                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                            return false;
+                        }
 
-            holder.videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                // Close the progress bar and play the video
-                public void onPrepared(MediaPlayer mp) {
-                    holder.videoView.setVisibility(View.VISIBLE);
-                    holder.progressBar.setVisibility(View.INVISIBLE);
-                    holder.videoView.start();
-                }
-            });
+                        @Override
+                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                            holder.progressBar.setVisibility(View.INVISIBLE);
+                            holder.imageView.setVisibility(View.VISIBLE);
+                            holder.playButton.setVisibility(View.VISIBLE);
+                            return false;
+                        }
+                    }).into(holder.imageView);
+            holder.videoView.setClickable(true);
         }
-
     }
 
 

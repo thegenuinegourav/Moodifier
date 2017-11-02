@@ -1,11 +1,12 @@
 package com.microsoft.projectoxford.emotionsample;
 
 public class NewsFeed {
-    private String status,video_url,image_url;
+    private String status,image_url;
+    private Video video_url;
     public NewsFeed() {
     }
 
-    public NewsFeed(String text, String image, String video) {
+    public NewsFeed(String text, String image, Video video) {
         this.status = text;
         this.image_url = image;
         this.video_url = video;
@@ -27,11 +28,11 @@ public class NewsFeed {
         this.image_url = image_url;
     }
 
-    public String getVideo_url() {
+    public Video getVideo_url() {
         return video_url;
     }
 
-    public void setVideo_url(String video_url) {
+    public void setVideo_url(Video video_url) {
         this.video_url = video_url;
     }
 }

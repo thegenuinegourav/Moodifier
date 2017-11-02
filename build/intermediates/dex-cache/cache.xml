@@ -12,21 +12,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Android\AndroidStudio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jar="C:\Users\Gourav\.android\build-cache\4a6f842efc115bdffddec3a75638509b9705f2fe\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_acfc07859ce56c48a6a8308f796fd5432761a118\classes.dex" />
+        sha1="e14806eb68bf5098f8a6b6f09e414143b7532280">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0f81f2598231b4529e32a819a2914727a5126d63\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Gourav\.android\build-cache\216c41f1e64c0aa77ebe3ef582dbd62b74dd41ea\output\jars\classes.jar"
+        jar="C:\Users\Gourav\.android\build-cache\5ae44fac30031cc328ba3cff8206710a442648cc\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5e36544251579824d8012c18670272f529a98a1e\classes.dex" />
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5610b2d27bcc2f100e0d116711278fc9ffa1ad0f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,42 +48,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Gourav\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_9729d39a7805dacb0856251a15a3150497179fba\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Projects\Moodifier\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cc487337557b8252acba6258ca95aba42977a5cf">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f1bc3bd042d4d431bbce4a63fd461381578a568c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Gourav\.android\build-cache\4a6f842efc115bdffddec3a75638509b9705f2fe\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e14806eb68bf5098f8a6b6f09e414143b7532280">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0f81f2598231b4529e32a819a2914727a5126d63\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Gourav\.android\build-cache\5ae44fac30031cc328ba3cff8206710a442648cc\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5610b2d27bcc2f100e0d116711278fc9ffa1ad0f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Gourav\.android\build-cache\a09d25d7a209ef6d689557d94c55e7669473e4fe\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -99,6 +63,42 @@
         revision="25.0.2"
         sha1="b9885b9cbfc39129a13674d39d0cae321fc0dc97">
         <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_62c618444cc2be07151a5bb8bcef85c006f70419\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Android\AndroidStudio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_acfc07859ce56c48a6a8308f796fd5432761a118\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gourav\.android\build-cache\216c41f1e64c0aa77ebe3ef582dbd62b74dd41ea\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5e36544251579824d8012c18670272f529a98a1e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Projects\Moodifier\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f28b1e3ce88e213e23e2f8cd66468a8c96ea2b56">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f1bc3bd042d4d431bbce4a63fd461381578a568c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gourav\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_9729d39a7805dacb0856251a15a3150497179fba\classes.dex" />
     </item>
 
 </items>

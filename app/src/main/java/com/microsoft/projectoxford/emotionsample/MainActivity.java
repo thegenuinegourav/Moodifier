@@ -54,6 +54,49 @@ public class MainActivity extends ActionBarActivity {
 
     public void Happy(View view) {
         Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","happy");
+        startActivity(intent);
+    }
+
+    public void Sad(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","sad");
+        startActivity(intent);
+    }
+
+    public void Angry(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","angry");
+        startActivity(intent);
+    }
+
+    public void Contempt(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","contempt");
+        startActivity(intent);
+    }
+
+    public void Disgust(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","disgust");
+        startActivity(intent);
+    }
+
+    public void Fear(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","fear");
+        startActivity(intent);
+    }
+
+    public void Neutral(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","neutral");
+        startActivity(intent);
+    }
+
+    public void Surprise(View view) {
+        Intent intent = new Intent(this, ChangeMoodActivity.class);
+        intent.putExtra("mood","surprise");
         startActivity(intent);
     }
 }

@@ -73,6 +73,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Sad"
                     android:layout_weight="1">
 
                     <ImageView
@@ -103,6 +104,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Angry"
                     android:layout_weight="1">
 
                     <ImageView
@@ -127,6 +129,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Contempt"
                     android:layout_weight="1">
 
                     <ImageView
@@ -157,6 +160,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Disgust"
                     android:layout_weight="1">
 
                     <ImageView
@@ -181,6 +185,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Fear"
                     android:layout_weight="1">
 
                     <ImageView
@@ -211,6 +216,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Neutral"
                     android:layout_weight="1">
 
                     <ImageView
@@ -235,6 +241,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:onClick="Surprise"
                     android:layout_weight="1">
 
                     <ImageView
