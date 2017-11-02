@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="emotion-1.0.355">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/emotion/1.0.355/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.microsoft.projectoxford/emotion/1.0.355/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/4a6f842efc115bdffddec3a75638509b9705f2fe/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/4a6f842efc115bdffddec3a75638509b9705f2fe/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
