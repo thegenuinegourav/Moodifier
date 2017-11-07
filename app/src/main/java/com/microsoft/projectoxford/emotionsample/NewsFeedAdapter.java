@@ -83,7 +83,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
         holder.currentItem = newsFeedListList.get(position);
         holder.progressBar.setVisibility(View.GONE);
         holder.playButton.setVisibility(View.GONE);
-        holder.videoView.setClickable(false);
         if(album.getStatus().equals("")) holder.status.setVisibility(View.GONE);
         else {
             holder.status.setVisibility(View.VISIBLE);
@@ -100,7 +99,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
                     .error(R.drawable.ic_error_outline_black_24dp)//in case of any glide exception or not able to download then this image will be appear . if you won't mention this error() then nothing to worry placeHolder image would be remain as it is.
                     .diskCacheStrategy(DiskCacheStrategy.ALL) //using to load into cache then second time it will load fast.
                     .animate(R.anim.fade_in) // when image (url) will be loaded by glide then this face in animation help to replace url image in the place of placeHolder (default) image.
-                    .fitCenter()//this method help to fit image into center of your ImageView
                     .listener(new RequestListener<String, GlideDrawable>() {
                         @Override
                         public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
@@ -128,7 +126,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
                     .error(R.drawable.ic_error_outline_black_24dp)//in case of any glide exception or not able to download then this image will be appear . if you won't mention this error() then nothing to worry placeHolder image would be remain as it is.
                     .diskCacheStrategy(DiskCacheStrategy.ALL) //using to load into cache then second time it will load fast.
                     .animate(R.anim.fade_in) // when image (url) will be loaded by glide then this face in animation help to replace url image in the place of placeHolder (default) image.
-                    .fitCenter()//this method help to fit image into center of your ImageView
                     .listener(new RequestListener<String, GlideDrawable>() {
                         @Override
                         public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
@@ -146,7 +143,6 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
                             return false;
                         }
                     }).into(holder.videoView);
-            holder.videoView.setClickable(true);
         }
     }
 
