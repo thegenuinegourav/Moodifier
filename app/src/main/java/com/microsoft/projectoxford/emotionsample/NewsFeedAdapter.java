@@ -2,52 +2,52 @@ package com.microsoft.projectoxford.emotionsample;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.PopupMenu;
+import android.content.res.Resources;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.VideoView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-
+import com.squareup.picasso.Picasso;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyViewHolder> {
+public class NewsFeedAdapter extends RecyclerView.Adapter {
 
     private Context mContext;
     private List<NewsFeed> newsFeedListList;
     public View v;
 
+    private final int VIEW_ITEM = 1;
+    private final int VIEW_PROG = 0;
+
+    private int visibleThreshold = 5;
+    private int lastVisibleItem, totalItemCount;
+    private boolean loading;
+    private OnLoadMoreListener onLoadMoreListener;
+
+
+    public static class ProgressViewHolder extends RecyclerView.ViewHolder {
+        public ProgressBar progressBar;
+
+        public ProgressViewHolder(View v) {
+            super(v);
+            progressBar = (ProgressBar) v.findViewById(R.id.progressBar1);
+        }
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView status;
         public ImageView imageView;
         public ImageView videoView,playButton;
-        public ProgressBar progressBar;
         public NewsFeed currentItem;
         public MyViewHolder(View view) {
             super(view);
             status = (TextView) view.findViewById(R.id.status);
             imageView = (ImageView) view.findViewById(R.id.image_url);
             videoView = (ImageView) view.findViewById(R.id.video_url);
-            progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
             playButton = (ImageView) view.findViewById(R.id.play_button);
             v = view;
             v.setOnClickListener(new View.OnClickListener() {
@@ -63,87 +63,107 @@ public class NewsFeedAdapter extends RecyclerView.Adapter<NewsFeedAdapter.MyView
     }
 
 
-    public NewsFeedAdapter(Context mContext, List<NewsFeed> albumList) {
+    public NewsFeedAdapter(Context mContext, List<NewsFeed> albumList, RecyclerView recyclerView) {
         this.mContext = mContext;
         this.newsFeedListList = albumList;
+        if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+
+            final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                        @Override
+                        public void onScrolled(RecyclerView recyclerView,
+                                               int dx, int dy) {
+                            super.onScrolled(recyclerView, dx, dy);
+
+                            totalItemCount = linearLayoutManager.getItemCount();
+                            lastVisibleItem = linearLayoutManager
+                                    .findLastVisibleItemPosition();
+                            if (!loading
+                                    && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
+                                // End has been reached
+                                // Do something
+                                if (onLoadMoreListener != null) {
+                                    onLoadMoreListener.onLoadMore();
+                                }
+                                loading = true;
+                            }
+                        }
+                    });
+        }
+    }
+
+    public static int getScreenWidth() {
+        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
 
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.cardview_newsfeed, parent, false);
-
-        return new MyViewHolder(itemView);
+    public int getItemViewType(int position) {
+        return newsFeedListList.get(position) != null ? VIEW_ITEM : VIEW_PROG;
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
-        final NewsFeed album = newsFeedListList.get(position);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        RecyclerView.ViewHolder vh;
+        if (viewType == VIEW_ITEM) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(
+                    R.layout.cardview_newsfeed, parent, false);
 
-        holder.currentItem = newsFeedListList.get(position);
-        holder.progressBar.setVisibility(View.GONE);
-        holder.playButton.setVisibility(View.GONE);
-        if(album.getStatus().equals("")) holder.status.setVisibility(View.GONE);
-        else {
-            holder.status.setVisibility(View.VISIBLE);
-            holder.status.setText(album.getStatus());
-        }
+            vh = new MyViewHolder(v);
+        } else {
+            View v = LayoutInflater.from(parent.getContext()).inflate(
+                    R.layout.layout_loading_item, parent, false);
 
-        if(album.getImage_url().equals("")){
-            Glide.clear(holder.imageView);
-            holder.imageView.setVisibility(View.GONE);
+            vh = new ProgressViewHolder(v);
         }
-        else {
-            holder.progressBar.setVisibility(View.VISIBLE);
-            Glide.with(mContext).load(album.getImage_url())
-                    .error(R.drawable.ic_error_outline_black_24dp)//in case of any glide exception or not able to download then this image will be appear . if you won't mention this error() then nothing to worry placeHolder image would be remain as it is.
-                    .diskCacheStrategy(DiskCacheStrategy.ALL) //using to load into cache then second time it will load fast.
-                    .animate(R.anim.fade_in) // when image (url) will be loaded by glide then this face in animation help to replace url image in the place of placeHolder (default) image.
-                    .listener(new RequestListener<String, GlideDrawable>() {
-                        @Override
-                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                            holder.progressBar.setVisibility(View.GONE);
-                            holder.imageView.setVisibility(View.VISIBLE);
-                            return false;
-                        }
+        return vh;
+    }
 
-                        @Override
-                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                            holder.progressBar.setVisibility(View.GONE);
-                            holder.imageView.setVisibility(View.VISIBLE);
-                            return false;
-                        }
-                    }).into(holder.imageView);
-        }
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder h, int position) {
 
-        if(album.getVideo_url()==null){
-            holder.videoView.setVisibility(View.GONE);
-            Glide.clear(holder.videoView);
-        }
-        else {
-            holder.progressBar.setVisibility(View.VISIBLE);
-            Glide.with(mContext).load(album.getVideo_url().getThumbnail_url())
-                    .error(R.drawable.ic_error_outline_black_24dp)//in case of any glide exception or not able to download then this image will be appear . if you won't mention this error() then nothing to worry placeHolder image would be remain as it is.
-                    .diskCacheStrategy(DiskCacheStrategy.ALL) //using to load into cache then second time it will load fast.
-                    .animate(R.anim.fade_in) // when image (url) will be loaded by glide then this face in animation help to replace url image in the place of placeHolder (default) image.
-                    .listener(new RequestListener<String, GlideDrawable>() {
-                        @Override
-                        public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-                            holder.progressBar.setVisibility(View.GONE);
-                            holder.videoView.setVisibility(View.VISIBLE);
-                            holder.playButton.setVisibility(View.VISIBLE);
-                            return false;
-                        }
+        if (h instanceof MyViewHolder) {
+            final MyViewHolder holder = (MyViewHolder) h;
+            final NewsFeed album = (NewsFeed) newsFeedListList.get(position);
+            holder.currentItem = newsFeedListList.get(position);
+            holder.playButton.setVisibility(View.GONE);
+            if(album.getStatus().equals("")) holder.status.setVisibility(View.GONE);
+            else {
+                holder.status.setVisibility(View.VISIBLE);
+                holder.status.setText(album.getStatus());
+            }
 
-                        @Override
-                        public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                            holder.progressBar.setVisibility(View.GONE);
-                            holder.videoView.setVisibility(View.VISIBLE);
-                            holder.playButton.setVisibility(View.VISIBLE);
-                            return false;
-                        }
-                    }).into(holder.videoView);
+            if(album.getImage_url().equals("")){
+                holder.imageView.setVisibility(View.GONE);
+            }
+            else {
+                holder.imageView.setVisibility(View.VISIBLE);
+                Picasso.with(mContext).load(album.getImage_url()).resize(getScreenWidth(), getScreenHeight()/2).into(holder.imageView);
+            }
+
+            if(album.getVideo_url()==null){
+                holder.videoView.setVisibility(View.GONE);
+            }
+            else {
+                if(!album.getVideo_url().getThumbnail_url().equals("")) Picasso.with(mContext).load(album.getVideo_url().getThumbnail_url()).resize(getScreenWidth(), getScreenHeight()/2).into(holder.videoView);
+                holder.videoView.setVisibility(View.VISIBLE);
+                holder.playButton.setVisibility(View.VISIBLE);
+            }
+
+        } else {
+            ((ProgressViewHolder) h).progressBar.setIndeterminate(true);
         }
+    }
+
+    public void setLoaded() {
+        loading = false;
+    }
+
+    public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
+        this.onLoadMoreListener = onLoadMoreListener;
     }
 
 

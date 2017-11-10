@@ -3,6 +3,33 @@
 
     <item
         is-multidex="true"
+        jar="D:\Projects\Moodifier\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_47016746de3ed78d8a2bf729d8b8005d647ed236\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Gourav\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_3def0e3f529b3a4bf233a12b6254399f38c9080a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Projects\Moodifier\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c95c007cdbf607f8487f2441939ec0f655e437d3">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f1bc3bd042d4d431bbce4a63fd461381578a568c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Gourav\.android\build-cache\5c2988d9146eed37d42cd5b38fd87b3f6fd31415\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -27,24 +54,6 @@
         revision="25.0.2"
         sha1="914f5d3e3ace66080e59613708f06d129a222e25">
         <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5610b2d27bcc2f100e0d116711278fc9ffa1ad0f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Projects\Moodifier\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_47016746de3ed78d8a2bf729d8b8005d647ed236\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Gourav\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_3def0e3f529b3a4bf233a12b6254399f38c9080a\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,21 +93,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="D:\Projects\Moodifier\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Gourav\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c95c007cdbf607f8487f2441939ec0f655e437d3">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_f1bc3bd042d4d431bbce4a63fd461381578a568c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Gourav\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_9729d39a7805dacb0856251a15a3150497179fba\classes.dex" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="D:\Projects\Moodifier\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_59de28bcf6de995540845bad1a1dd05fd5359237\classes.dex" />
     </item>
 
 </items>
