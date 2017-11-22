@@ -58,15 +58,15 @@ mood.
   
     
 ## Screenshots  
-<img src="screenshots/one.png" width="400"> <img src="screenshots/two.png" width="400">  
+<img src="screenshots/one.jpg" width="400"> <img src="screenshots/two.jpg" width="400">  
     
-<img src="screenshots/three.png" width="400"> <img src="screenshots/four-1.png" width="400">  
+<img src="screenshots/three.jpg" width="400"> <img src="screenshots/four-1.jpg" width="400">  
     
-<img src="screenshots/four-2.png" width="400"> <img src="screenshots/four-3.png" width="400">  
+<img src="screenshots/four-2.jpg" width="400"> <img src="screenshots/four-3.jpg" width="400">  
     
-<img src="screenshots/five.png" width="400"> <img src="screenshots/six.png" width="400">  
+<img src="screenshots/five.jpg" width="400"> <img src="screenshots/six.jpg" width="400">  
     
-<img src="screenshots/seven.png" width="400">   
+<img src="screenshots/seven.jpg" width="400">   
     
     
     
