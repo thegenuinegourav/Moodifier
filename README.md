@@ -56,12 +56,20 @@ mood.
   
   
   
-  
+    
 ## Screenshots  
-  
-  
-  
-   
+<img src="screenshots/one.png" width="400"> <img src="screenshots/two.png" width="400">  
+    
+<img src="screenshots/three.png" width="400"> <img src="screenshots/four-1.png" width="400">  
+    
+<img src="screenshots/four-2.png" width="400"> <img src="screenshots/four-3.png" width="400">  
+    
+<img src="screenshots/five.png" width="400"> <img src="screenshots/six.png" width="400">  
+    
+<img src="screenshots/seven.png" width="400">   
+    
+    
+    
 ## Want to contribute?  
   
 <img align="right" width="300" src="assets/fork.png" alt="fork this repository" />
