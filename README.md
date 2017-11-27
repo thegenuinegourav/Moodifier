@@ -67,8 +67,13 @@ mood.
 <img src="screenshots/five.jpg" width="400"> <img src="screenshots/six.jpg" width="400">  
     
 <img src="screenshots/seven.jpg" width="400">   
-    
-    
+  
+## Future Plans
+Moodifier can be further extended by detecting emotions not only from Camera interface (Face
+Recognition) but also from user’s speech (Speech Tone Recognition). To achieve this, user’s
+sound & data sets (different emotions with different tone) can be compared.  
+  
+  
     
 ## Want to contribute?  
   
