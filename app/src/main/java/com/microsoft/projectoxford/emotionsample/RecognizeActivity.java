@@ -314,16 +314,6 @@ public class RecognizeActivity extends ActionBarActivity {
                         if(max<r.scores.neutral){ max=r.scores.neutral; mEditText.setText("Neutral"); }
                         if(max<r.scores.sadness){ max=r.scores.sadness; mEditText.setText("Sad"); }
                         if(max<r.scores.surprise){ max=r.scores.surprise; mEditText.setText("Surprise"); }
-//                        mEditText.append(String.format("\nFace #%1$d \n", count));
-//                        mEditText.append(String.format("\t anger: %1$.5f\n", r.scores.anger));
-//                        mEditText.append(String.format("\t contempt: %1$.5f\n", r.scores.contempt));
-//                        mEditText.append(String.format("\t disgust: %1$.5f\n", r.scores.disgust));
-//                        mEditText.append(String.format("\t fear: %1$.5f\n", r.scores.fear));
-//                        mEditText.append(String.format("\t happiness: %1$.5f\n", r.scores.happiness));
-//                        mEditText.append(String.format("\t neutral: %1$.5f\n", r.scores.neutral));
-//                        mEditText.append(String.format("\t sadness: %1$.5f\n", r.scores.sadness));
-//                        mEditText.append(String.format("\t surprise: %1$.5f\n", r.scores.surprise));
-                       // mEditText.append(String.format("\t face rectangle: %d, %d, %d, %d", r.faceRectangle.left, r.faceRectangle.top, r.faceRectangle.width, r.faceRectangle.height));
                         faceCanvas.drawRect(r.faceRectangle.left,
                                 r.faceRectangle.top,
                                 r.faceRectangle.left + r.faceRectangle.width,
