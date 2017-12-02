@@ -31,6 +31,8 @@ __Step 2__: Texts, Jokes, Quotes, Images, Memes, Videos, Gifs will be displayed 
 mood.  
   
   
+<img src="screenshots/flowchart.png" width="1000">
+
   
   
 ## Technology Stack  
