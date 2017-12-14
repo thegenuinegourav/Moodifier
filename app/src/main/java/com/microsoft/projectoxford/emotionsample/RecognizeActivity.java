@@ -118,7 +118,7 @@ public class RecognizeActivity extends ActionBarActivity {
         }
 
         String faceSubscriptionKey = getString(R.string.faceSubscription_key);
-        if (faceSubscriptionKey.equalsIgnoreCase("fdefec9193f3431494303f96b62308f3")) {
+        if (faceSubscriptionKey.equalsIgnoreCase("9baf86ab1e9c41c5b480b2a180a16448")) {
             //mEditText.append("\n\nThere is no face subscription key in res/values/strings.xml. Skip the sample for detecting emotions using face rectangles\n");
         } else {
             // Do emotion detection using face rectangles provided by Face API.
